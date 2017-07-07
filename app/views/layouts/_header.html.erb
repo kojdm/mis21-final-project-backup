@@ -1,0 +1,17 @@
+<p>
+    <% if admin_signed_in? %>
+        Logged in as <strong><%= current_admin.email %></strong> |
+        <%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+    <% else %>
+        <%= link_to "Sign up", new_admin_registration_path %> |
+        <%= link_to "Login", new_admin_session_path %>
+    <% end %>
+    
+    <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    
+    <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+</p>

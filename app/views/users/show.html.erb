@@ -1,0 +1,12 @@
+<%= button_to 'Back', users_path, method: :get, class: 'btn btn-default' %>
+
+<h1>Cashier Name: <strong><%= @user.name %></strong></h1>
+<% if @user.status? %>
+    <h1>Status: <strong>Active</strong></h1>
+<% else %>
+    <h1>Status: <strong>Inactive</strong></h1>
+<% end %>
+<h1>Admin: <strong><%= @user.admin.email %></strong></h1>
+<br><br>
+
+<%= button_to 'Edit', edit_user_path(@user), method: :get, class: 'btn btn-primary' %>

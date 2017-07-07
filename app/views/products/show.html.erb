@@ -1,0 +1,12 @@
+<%= button_to 'Back', products_path, method: :get, class: 'btn btn-default' %>
+
+<h1>Product Name: <strong><%= @product.name %></strong></h1>
+<h1>Price: <strong><%= @product.price %></strong></h1>
+<% if @product.status? %>
+    <h1>Status: <strong>Active</strong></h1>
+<% else %>
+    <h1>Status: <strong>Inactive</strong></h1>
+<% end %>
+<br><br>
+
+<%= button_to 'Edit', edit_product_path(@product), method: :get, class: 'btn btn-primary' %>

@@ -1,0 +1,33 @@
+<h1>Products List</h1>
+<%= button_to 'Add Product', new_product_path, method: :get, class: 'btn btn-success btn-lg' %>
+<br><br>
+
+<div class="table-responsive">          
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+	<% @products.each do |product| %>
+		<tr>
+			<td><%= product.id %></td>
+			<td><%= product.name %></td>
+			<td><%= product.price %></td>
+			<% if product.status? %>
+                <td>Active</td>
+            <% else %>
+                <td>Inactive</td>
+            <% end %>
+			<td><%= button_to 'Show', product_path(product), method: :get, class: 'btn btn-default btn-xs' %>
+			<td><%= button_to 'Edit', edit_product_path(product), method: :get, class: 'btn btn-default btn-xs' %>
+			<td><%= button_to 'Delete', product_path(product), method: :delete, data: {confirm: "Delete product \"" + product.name + "\"?"}, class: 'btn btn-danger btn-xs' %>
+		</tr>
+	<%end %>
+    </tbody>
+  </table>
+</div>
