@@ -1,0 +1,37 @@
+<style>
+    table {
+        table-layout: fixed;
+    }
+    .longText {
+        white-space:nowrap; 
+        overflow:hidden; 
+        text-overflow:ellipsis;
+        width:100%
+    }
+</style>
+
+<h1>Announcements</h1>
+<br><br>
+
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+        <tr>
+            <th class="col-md-2">Date</th>
+            <th class="col-md-1">Admin</th>
+            <th class="col-md-3">Subject</th>
+            <th class="col-md-6">Content</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @announcements.each do |a| %>
+            <tr>
+                <td><%= a.created_at.strftime("%b %d %H:%M %p") %></td>
+                <td><%= a.admin.name %></td>
+                <td><strong><%= link_to "#{a.subject}", user_announcement_path(a) %></strong></td>
+                <td><p class="longText"><%= a.content %></p></td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

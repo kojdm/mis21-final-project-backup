@@ -19,6 +19,7 @@
 		      	<li><%= link_to "Report", report_path %></li>
 		        <li><%= link_to "Products", products_path %></li>
 		        <li><%= link_to "Cashiers", users_path %></li>
+		        <li><%= link_to "Announcements", announcements_path %></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
 		        <li><a href="#">Logged in as <strong><%= current_admin.name %></strong></a></li>
@@ -29,6 +30,7 @@
 		    <% if user_signed_in? %>
 		      <ul class="nav navbar-nav">
 		        <li><%= link_to "Orders", orders_path %></li>
+		        <li><%= link_to "Announcements", user_announcements_path %></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
 		        <li><a href="#">Logged in as <strong><%= current_user.name %></strong></a></li>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
     
     devise_for :users, path: '', path_names: {sign_in: "", sign_out: ""}
-    devise_for :admins, path: '', path_names: {sign_in: "welcome/admin_login", sign_out: ""}
+    devise_for :admins, path: '', path_names: {sign_in: "/admin_login", sign_out: ""}
     
     resources :users do
         post :deactivate, on: :member
@@ -15,9 +15,9 @@ Rails.application.routes.draw do
     
     resources :orders
     resources :announcements
+    resources :user_announcements, only: [:index, :show]
     
     get '/report', to: "reports#index"
-    post '/report', to: "reports#create"
     
     devise_scope :user do
         root to: 'devise/sessions#new'

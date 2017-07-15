@@ -1,0 +1,5 @@
+<h1><%= @announcement.subject %></h1>
+<h6><%= @announcement.created_at %> | By: <%= @announcement.admin.name %></h6>
+<p style="white-space: pre-wrap"><%= @announcement.content %></p>
+<br>
+<%= button_to "Back", announcements_path, method: :get, class: "btn btn-default" %>

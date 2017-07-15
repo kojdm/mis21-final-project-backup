@@ -5,4 +5,5 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          
   has_many :users
+  has_many :announcements
 end
