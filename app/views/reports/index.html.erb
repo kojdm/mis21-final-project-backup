@@ -1,0 +1,27 @@
+<h1>Daily Sales Report</h1>
+<h5><%= Time.now.to_date %></h5>
+
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity Sold</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td><strong>TOTAL</strong></td>
+            <td><strong><%= @total_products_sold %></strong></td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <% @products.each do |product| %>
+            <tr>
+                <td><%= product.name %></td>
+                <td><%= @quantity_sold_for[product.name] %></td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

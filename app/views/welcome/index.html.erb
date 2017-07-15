@@ -1,0 +1,23 @@
+<div class="jumbotron">
+  <h1>Welcome</h1>
+  
+  <div class="row">
+    <div class="col-md-6" style="padding:20px">
+      <h3>Cashier Sign In</h3>
+      <%= simple_form_for(:user, :url => session_path(:user)) do |f| %>
+        <%= f.input :email, label: false, placeholder: "E-mail" %>
+        <%= f.input :password, label: false, placeholder: "Password" %>
+        <%= f.submit 'Sign in', class:"btn btn-primary" %>
+      <% end %>
+    </div>
+    
+    <div class="col-md-6" style="padding:20px">
+      <h3>Admin Sign In</h3>
+      <%= simple_form_for(:admin, :url => session_path(:admin)) do |f| %>
+        <%= f.input :email, label: false, placeholder: "E-mail" %>
+        <%= f.input :password, label: false, placeholder: "Password" %>
+        <%= f.submit 'Sign in', class:"btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

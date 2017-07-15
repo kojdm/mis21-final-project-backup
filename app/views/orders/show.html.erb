@@ -1,0 +1,63 @@
+<h1>Order Summary</h1>
+<h5><%= @order.created_at %></h5>
+
+<div class="table-responsive">          
+  <table class="table table-striped">
+    <caption>Order Summary</caption>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td><strong>TOTAL</strong></td>
+        <td></td>
+        <td></td>
+        <td><%= @order.total_price %></td>
+      </tr>
+    </tfoot>
+    <tbody>
+    	<% @order_lines.each do |ol| %>
+    		<tr>
+    			<td><%= ol.product.name %></td>
+    			<td><%= ol.product.price %></td>
+          <td><%= ol.quantity %></td>
+          <td><%= ol.price %></td>
+          <% if @order.is_discounted? == true %>
+            <td>10% Discount</td>
+          <% end %>
+    		</tr>
+    	<% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="table-responsive">          
+  <table class="table table-striped">
+    <caption>Cash Summary</caption>
+    <tfoot>
+      <tr>
+        <td><strong>CHANGE</strong></td>
+        <td><strong><%= @order.calculate_change(@order.total_price, @order.cash) %></strong></td>
+      </tr>
+    </tfoot>
+    <tbody>
+        <tr>
+            <td>Total Amount Due</td>
+            <td><%= @order.total_price %></td>
+        </tr>
+        <tr>
+            <td>Cash Tendered</td>
+            <td><%= @order.cash %></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<%= button_to "New Order", new_order_path, method: :get, class: "btn btn-info btn-lg" %>
+<br>
+<%= button_to "Orders Home", orders_path, method: :get, class: "btn btn-default btn-sm" %>

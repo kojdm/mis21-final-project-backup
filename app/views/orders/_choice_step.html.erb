@@ -1,0 +1,9 @@
+    <div id="order_lines">
+	    <%= f.simple_fields_for :order_lines do |ol| %>
+	    	<%= render 'order_line_fields', f: ol %>
+	    <% end %>
+	    
+	    <div class="links">
+	    	<%= link_to_add_association 'Add Order Line', f, :order_lines, class: "btn btn-success" %>
+	    </div>
+    </div>

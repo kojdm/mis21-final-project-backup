@@ -1,0 +1,41 @@
+<div class="table-responsive">          
+  <table class="table table-striped">
+    <caption>Order Summary</caption>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td><strong>TOTAL</strong></td>
+        <td></td>
+        <td></td>
+        <td><%= @order.total_price %></td>
+      </tr>
+    </tfoot>
+    <tbody>
+	<% @order.order_lines.each do |ol| %>
+		<tr>
+			<td><%= ol.product.name %></td>
+			<td><%= ol.product.price %></td>
+      <td><%= ol.quantity %></td>
+      <td><%= ol.price %></td>
+      <% if @order.is_discounted? == true %>
+        <td>10% Discount</td>
+      <% end %>
+		</tr>
+	<% end %>
+    </tbody>
+  </table>
+</div>
+
+	<p>
+		<%= f.input :total_price, readonly: true %>
+	</p>
+	<p>
+		<%= f.input :cash %>
+	</p>

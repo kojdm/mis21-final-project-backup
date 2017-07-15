@@ -1,0 +1,35 @@
+<h1>Orders</h1>
+<%= button_to 'New Order', new_order_path, method: :get, class: "btn btn-info btn-lg" %>
+
+<h4 align="right">Orders taken today: <%= @orders_today.count %></h4>
+<div class="table-responsive" >
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Date</td>
+                <td>Items</td>
+                <td>Quantity</td>
+                <td>Total Price</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% @orders.each do |order| %>
+            <tr>
+                <td><%= order.created_at %></td>
+                <td>
+                    <% order.order_lines.each do |ol| %>
+                        <%= ol.product.name %> <br>
+                    <% end %>
+                </td>
+                <td>
+                    <% order.order_lines.each do |ol| %>
+                        <%= ol.quantity %> <br>
+                    <% end %>
+                </td>
+                <td style="vertical-align:middle"><%= order.total_price %></td>
+                <td style="vertical-align:middle"><%= button_to "Show", order_path(order), method: :get, class: "btn btn-default btn-xs" %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

@@ -16,7 +16,7 @@
 		      
 		     <% if admin_signed_in? %>
 		      <ul class="nav navbar-nav">
-		        <li><a href="#">Report</a></li>
+		      	<li><%= link_to "Report", report_path %></li>
 		        <li><%= link_to "Products", products_path %></li>
 		        <li><%= link_to "Cashiers", users_path %></li>
 		      </ul>

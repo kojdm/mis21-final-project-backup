@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    
+before_action :authenticate_admin!
+
     def index
         @users = User.all
     end
@@ -31,9 +32,16 @@ class UsersController < ApplicationController
         end
     end
     
-    def destroy
+    def deactivate
         @user = User.find(params[:id])
-        @user.destroy
+        @user.deactivate!
+        
+        redirect_to users_path
+    end
+    
+    def activate
+        @user = User.find(params[:id])
+        @user.activate!
         
         redirect_to users_path
     end

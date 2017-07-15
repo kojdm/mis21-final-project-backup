@@ -1,0 +1,7 @@
+<div class="nested-fields">
+    <div class="row">
+        <div class="col-sm-7"><%= f.association :product, label_method: lambda {|product| "#{product.name} - #{product.price}"}, value_method: :id %></div>
+        <div class="col-sm-4"><%= f.input :quantity, value: 1 %></div>
+        <div class="col-sm-1"><%= link_to_remove_association "", f, class:"btn btn-danger glyphicon glyphicon-remove" %></div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<h1>New Order</h1>
+
+<!--<% if @order.errors.any? %>-->
+<!--  <div>-->
+<!--    <strong>-->
+<!--      <%= pluralize(@order.errors.count, 'error') %> were found-->
+<!--    </strong>-->
+
+<!--    <ul>-->
+<!--      <% @order.errors.full_messages.each do |msg| %>-->
+<!--        <li><%= msg %></li>-->
+<!--      <% end %>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--<% end %>-->
+
+<%= simple_form_for @order do |f| %>
+  <%= render "#{@order.current_step}_step", f: f  %>
+  <br><br>
+
+  <p><%= f.submit "Continue", class: "btn btn-primary", name: "to_summary" if @order.current_step == "choice" %></p>
+  <p><%= f.submit "Continue", class: "btn btn-primary", name: "to_show" unless @order.current_step == "choice" %></p>
+  <p><%= f.submit "Back", class: "btn btn-default", name: "back_button" unless @order.current_step == "choice" %></p>
+<% end %>
+
+<%= button_to "Cancel", orders_path, method: :get, class: "btn btn-default btn-sm" %>
