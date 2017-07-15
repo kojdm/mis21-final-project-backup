@@ -3,7 +3,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
     create_table :products do |t|
       t.string :name
       t.decimal :price
-      t.boolean :status
+      t.boolean :status, default: true
 
       t.timestamps
     end

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
     
     resources :orders
+    resources :messages
     
     get '/report', to: "reports#index"
     post '/report', to: "reports#create"

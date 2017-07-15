@@ -6,7 +6,6 @@
     <%= f.input :email, required: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
-    <%= f.input :status, collection: [[true, 'Active'], [false, 'Inactive']], label_method: :last, value_method: :first, as: :select, include_blank: false %>
   </div>
 
   <div class="form-actions">

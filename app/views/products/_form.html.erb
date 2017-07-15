@@ -6,9 +6,6 @@
 		<%= f.input :price %>
 	</p>
 	<p>
-		<%= f.input :status, collection: [[true, 'Active'], [false, 'Inactive']], label_method: :last, value_method: :first, as: :select, include_blank: false %>
-	</p>
-	<p>
 		<%= f.button :submit %>
 	</p>
 <% end %>

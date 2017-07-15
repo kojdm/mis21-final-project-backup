@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20170713044234) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20170713044234) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "admin_id"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.index ["admin_id"], name: "index_users_on_admin_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
