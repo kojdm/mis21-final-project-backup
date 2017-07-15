@@ -30,9 +30,9 @@
 			<td><%= button_to 'Show', user_path(user), method: :get, class: 'btn btn-default btn-xs' %>
 			<td><%= button_to 'Edit', edit_user_path(user), method: :get, class: 'btn btn-default btn-xs' %>
 			<% if user.status? %>
-			  <td><%= button_to 'Deactivate', deactivate_user_path(user), method: :post, data: {confirm: "Deactivate user \"" + user.name + "\"?"}, class: 'btn btn-danger btn-xs' %>
+			  <td><%= button_to 'Deactivate', deactivate_user_path(user), method: :post, data: {confirm: "Deactivate cashier \"" + user.name + "\"?"}, class: 'btn btn-danger btn-xs' %>
 		  <% else %>
-		     <td><%= button_to 'Activate', activate_user_path(user), method: :post, data: {confirm: "Activate user \"" + user.name + "\"?"}, class: 'btn btn-primary btn-xs' %>
+		     <td><%= button_to 'Activate', activate_user_path(user), method: :post, data: {confirm: "Activate cashier \"" + user.name + "\"?"}, class: 'btn btn-primary btn-xs' %>
 		  <% end %>
 		</tr>
 	<%end %>

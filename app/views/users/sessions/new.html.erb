@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h1>Welcome</h1>
+  
+  <div class="container">
+    <h3>Cashier Sign In</h3>
+    <%= simple_form_for(:user, :url => session_path(:user)) do |f| %>
+      <%= f.input :email, label: false, placeholder: "E-mail" %>
+      <%= f.input :password, label: false, placeholder: "Password" %>
+      <%= f.submit 'Sign in', class:"btn btn-primary btn-block" %>
+    <% end %>
+    <br>
+    <div style="display: table; margin: 0 auto">
+      <%= link_to "Sign in as Admin", new_admin_session_path %>
+    </div>
+  </div>
+</div>
