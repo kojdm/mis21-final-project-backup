@@ -7,3 +7,5 @@
 	    	<%= link_to_add_association 'Add Order Line', f, :order_lines, class: "btn btn-success" %>
 	    </div>
     </div>
+    <br><br>
+    <%= f.input :is_discounted, as: :select, include_blank: false, label: "Apply Senior Discount (20%)?" %>

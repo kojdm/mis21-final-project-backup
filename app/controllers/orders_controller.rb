@@ -62,8 +62,7 @@ before_action :authenticate_user!
     def perform_computations(order, orders_count)
         total = 0
                 
-        if orders_count % 10 == 0
-            order.is_discounted = true
+        if order.is_discounted == true
             order.order_lines.each do |ol|
                 ol.price = ol.product.price * ol.quantity * 0.9
                 total += ol.price

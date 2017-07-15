@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+MIS 21 Final Project submitted by:
+Gianfranco S. Del Mundo
+141262
+MIS 21 C
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Extra Features:
+* 'Edit/Back' function on new order. Cashier is able to edit the customer's order even after the summary screen is displayed.
+* 'Announcements' feature. Allows the Admin to send out announcements to the cashiers.
+* Senior discount feature. Allows the Cashier to give a 20% discount if the customer is a senior citizen. (Adapted from the Final task given to me).
